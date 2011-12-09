@@ -40,7 +40,7 @@ var IndigoAppName = IndigoAppName_Original;
 var IndigoWidgetDebug = false;
 var currentView = "Devices";
 var IndigoWidgetName = "IndigoWidget";
-var IndigoWidgetVersion = "1.3.0";
+var IndigoWidgetVersion = "1.3.2";
 var IndigoUpdateTimer = "20"; // seconds
 var timerInterval;
 var numTransactions = 0;
@@ -479,12 +479,18 @@ function createDeviceRow (title, state, supportsDim, value, even)
             slider_input.setAttribute('type','range');
             slider_input.setAttribute('min','0'); 
             slider_input.setAttribute('max','100'); 
-            slider_input.setAttribute('value',value);
+
+// Previous technique that broke with WebKit change by Safari 5.0 (2010/06/17):
+//          slider_input.setAttribute('value',value);
+// New technique that seems to work correctly:
+			slider_input.value = value;
+
             slider_input.setAttribute ('device', title);
             slider_input.setAttribute('onmouseup','changeDim(this);');
+
             row.appendChild (slider_div);	
        }		
-		
+
         // Create the div and accompanying span, which will hide the text & replace with the lightbulb.
 		var state_div = document.createElement ('div');
 		var state_span = document.createElement ('span');
@@ -921,8 +927,10 @@ function getVariables() {
         + " -e 'set variableValues to {}'"
             + " -e 'tell application \""+IndigoAppName+"\"'"
             + " -e 'repeat with curVariable in variables'"
-                + " -e 'set variableNames to variableNames & (name of curVariable)'"
-                + " -e 'set variableValues to variableValues & (value of curVariable)'"
+                + " -e 'if(display in remote ui of curVariable) is true then'"
+                    + " -e 'set variableNames to variableNames & (name of curVariable)'"
+                    + " -e 'set variableValues to variableValues & (value of curVariable)'"
+                + " -e 'end if'"
             + " -e 'end repeat'"
             + " -e 'return variableNames & \": \" & variableValues'"
         + " -e 'end tell'";
