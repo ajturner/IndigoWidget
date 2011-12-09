@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><!--
+// File: IndigoWidget.html
+// Purpose: HTML document for Indigo home automation widget
+// Written by Andrew Turner (ajturner@highearthorbit.com)
+// Date: October 30, 2005
+// Version: 1.3
+// History: 
+//  1.3 - Added preference inputs for setting remote applescripting (Oct 30, 2005)
+//  1.2 - changed calling URLs to use wrapURL function in the js file (Sept 23, 2005)
+//  1.1 - Added resizing (Sept 19, 2005)
+//  1.0 - Initial Release (Sept 9, 2005)
+--><html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<!-- The style sheet should be kept in a separate file; it contains the design for the widget -->
+<style type="text/css">
+	@import "Indigo.css";
+	@import "Scroller.css";
+</style>
+
+<!-- The JavaScript file contains the logic needed for this widget -->
+<script type="text/javascript" src="Indigo.js" charset="utf-8"></script>
+<script type="text/javascript" src="Resizer.js" charset="utf-8"></script>
+<script type="text/javascript" src="Scroller.js" charset="utf-8"></script>
+<script type="text/javascript" src="file:///System/Library/WidgetResources/button/genericButton.js" charset="utf-8"></script>
+<script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleButton.js" charset="utf-8"></script>
+<script type="text/javascript" src="Parts/GlassButton.js" charset="utf-8"></script>
+<script type="text/javascript" src="Parts/utilities.js" charset="utf-8"></script>
+<script type="text/javascript" src="Parts/setup.js" charset="utf-8"></script>
+</head>
+<body onload="load();" onmouseover="enterwindow(event);" onmouseout="exitwindow(event);">
+	<div id="front" onmousemove="mousemove(event);">
+		<div id="drawer">
+			<div id="drawer-left" style="height: 200px">
+				<div id="drawer-right">
+					<div id="container">
+						<div id="content">
+				            <div id="contents" style="overflow: visible; position: relative; margin-right: 19px">
+							 <!--	Contenitore per messaggi e resoconti -->
+							</div>
+							<div id="myScrollBar">
+								<div id="myScrollTrack"> <!-- onmousedown="mouseDownTrack(event);" onmouseup="mouseUpTrack(event);"-->
+									<div class="scrollTrackTop" id="myScrollTrackTop"></div>
+									<div class="scrollTrackMid" id="myScrollTrackMid"></div>
+									<div class="scrollTrackBot" id="myScrollTrackBot"></div>
+								</div>
+								<div id="myScrollThumb"><!-- onmousedown="mouseDownScrollThumb(event);"-->
+									<div class="scrollThumbTop" id="myScrollThumbTop"></div>
+									<div class="scrollThumbMid" id="myScrollThumbMid"></div>
+									<div class="scrollThumbBot" id="myScrollThumbBot"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bottom-left">
+				<div class="flip" id="fliprollie"></div>
+				<div class="flip" id="flip" onclick="showBack(event);" onmouseover="enterflip(event);" onmouseout="exitflip(event);"></div>
+				<div id="bottom-right">
+					<div id="resizer" onmousedown="mouseDownResizer(event);"></div>
+				    <div id="statusbar"></div>
+					<div id="bottom-filler"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="top" class="open">
+       
+            <div id="titlebar">Indigo<br>
+                <span style="font-size:9px;font-family:'Lucida grande',verdana,sans-serif">home automation</span>
+            </div>
+       		<div id="controls">
+
+                <table id="navbar" cellspacing="0" class="navbarclass">
+                        <tbody>
+                            <tr align="center">
+                            <td id="DevicesNavText" class="navtextSelected" onclick="showContent('Devices');">
+                                <div class="left"></div>
+                            <div class="navtext">Devices</div>
+                            <div class="right"></div>
+                            </td>
+                            <td id="ActionsNavText" class="navtext" onclick="showContent('Actions');">
+                                <div class="left"></div>
+                            <div class="navtext">Actions</div>
+                            <div class="right"></div>
+                            </td>
+                            <td id="VariablesNavText" class="navtext" onclick="showContent('Variables');">
+                                <div class="left"></div>
+                            <div class="navtext">Variables</div>
+                            <div class="right"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+			</div>
+			<div id="top-left">
+				<div id="top-right">
+					<div id="top-filler"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+ <div id="back">
+    <img src="Images/back.png">
+    <div id="backcontents">
+        <div id="backtitle">IndigoWidget</div>
+        <div id="backversion">Version 1.3.0</div>
+    <br>
+        <div id="remoteServerInput">
+            <div class="leftoptions">
+                <input style="width:90;" type="text" id="serverIP" size="11" results="10" autosave="serverIP" placeholder="Server IP" value="">
+            <br>
+                <input id="remoteServer" type="checkbox">Remote Server
+            </div>
+            <div class="rightoptions">
+                <input style="width:90;" type="text" id="serverUsername" size="11" results="10" autosave="serverUsername" placeholder="Username" value="">
+            <br>
+                <input style="width:90;" type="password" id="serverPassword" size="11" results="10" autosave="serverPassword" placeholder="Password" value="">
+            <br>
+            </div>
+        </div>
+	    <div onclick="wrapURL(&quot;http://www.highearthorbit.com&quot;)">Made by Andrew Turner<br>http://highearthorbit.com<br>
+	    <br>
+	    </div>
+        <div onclick="wrapURL(&quot;http://www.perceptiveautomation.com&quot;)">Indigo is made by Perceptive Automation<br>http://perceptiveautomation.com</div>
+    </div>
+    <div id="doneButton"></div>
+<div id="done"></div>
+	
+ </div>
+
+
+
+</body>
+</html>

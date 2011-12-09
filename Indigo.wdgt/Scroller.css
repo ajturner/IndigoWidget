@@ -1,0 +1,74 @@
+#myScrollBar {
+	position: absolute;
+	top: 3px;
+	right: 19px;
+	width:15px;
+	height: 194px;
+	display:block;
+	z-index: 2000;
+	-apple-dashboard-region:dashboard-region(control rectangle);
+}
+
+.scrollTrackTop {
+	position:absolute;
+	top:0;
+	width:19px;
+	height:18px;
+	background:url(Images/scroll-top.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+.scrollTrackMid {
+	position:absolute;
+	top:18px;
+	width:19px;
+	bottom:18px;
+	background:url(Images/scroll-mid.png);
+	background-repeat:repeat-y;
+	background-position:top left;
+}
+.scrollTrackBot {
+	position:absolute;
+	bottom:0;
+	width:19px;
+	height:18px;
+	background:url(Images/scroll-bottom.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+/* Scroller thumb	*/
+#myScrollThumb {
+	position:absolute;
+	top:0;
+	left:1px;
+	height:30px;
+	display:block;
+}
+.scrollThumbTop {
+	position:absolute;
+	top:0;
+	width:18px;
+	height:9px;
+	background:url(Images/scroll-thumb-top.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+.scrollThumbMid {
+	position:absolute;
+	top:9px;
+	width:18px;
+	bottom:9px;
+	background:url(Images/scroll-thumb-mid.png);
+	background-repeat:repeat-y;
+	background-position:top left;
+}
+.scrollThumbBot {
+	position:absolute;
+	bottom:0;
+	width:18px;
+	height:9px;
+	background:url(Images/scroll-thumb-bottom.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+}

@@ -1,0 +1,521 @@
+/* 
+//File: IndigoWidget.css
+// Purpose: Stylesheet for the Indigo home automation widget
+// Written by Andrew Turner (ajturner@highearthorbit.com)
+// Date: October 30, 2005
+// Version: 1.2
+// History: 
+//  1.2 - added preferences (Oct 30, 2005)
+//  1.1 - added resizing (Sept 18, 2005)
+//  1.0 - Initial Release (Sept 9, 2005)
+*/
+/*
+* Copyright (c) 2005, Andrew Turner, HighEarthOrbit software* All rights reserved.* Redistribution and use in source and binary forms, with or without* modification, are permitted provided that the following conditions are met:**     * Redistributions of source code must retain the above copyright*       notice, this list of conditions and the following disclaimer.*     * Redistributions in binary form must reproduce the above copyright*       notice, this list of conditions and the following disclaimer in the*       documentation and/or other materials provided with the distribution.*     * Neither the name of Andrew Turner nor the*       names of its contributors may be used to endorse or promote products*       derived from this software without specific prior written permission.** THIS SOFTWARE IS PROVIDED BY HIGHEARTHORBIT AND CONTRIBUTORS "AS IS" AND ANY* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE* DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+body {
+    margin: 0px;
+    font-family: 'Lucida Grande';
+}
+
+/* Front of the widget */
+#front {
+    width: 100%;
+    height: 177px;
+}
+
+/* Top of the widget */
+#top {
+    height: 57px;
+    z-index: 200;
+}
+
+#top.closed #top-left {
+    background-image: url(Images/top-left.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-left: 200px;
+    height: 57px;
+    background-position: 0% 0%;
+}
+
+#top.closed #top-right {
+    background-image: url(Images/top-right.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-right: 59px;
+    height: 57px;
+    background-position: 100% 0%;
+}
+
+#top.closed #top-filler {
+    background-image: url(Images/top-filler.png);
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    height: 57px;
+    background-position: 0% 0%;
+}
+
+#top.open #top-left {
+    background-image: url(Images/top-left-open.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-left: 200px;
+    height: 47px;
+    background-position: 0% 0%;
+}
+
+#top.open #top-right {
+    background-image: url(Images/top-right-open.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-right: 59px;
+    height: 47px;
+    background-position: 100% 0%;
+}
+
+#top.open #top-filler {
+    background-image: url(Images/top-filler-open.png);
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    height: 47px;
+    background-position: 0% 0%;
+}
+
+/************
+ * Titlebar *
+ ************/
+#titlebar {
+    float: right;
+    position: relative;
+    margin-right: 60px;
+    margin-top: 14px;
+    width: 80px;
+    font: normal normal normal 20px/normal 'Century Gothic', 'Lucida Grande', Verdana, sans-serif;
+    font-weight: lighter;
+    color: purple;
+    text-align: right;
+    cursor: pointer;
+    line-height: 10px;
+}
+
+/**********
+ * Navbar *
+ **********/
+#navbar {
+    position: relative;
+    left: 15px;
+    top: 20px;
+    width: 170px;
+    font: normal normal normal 12px/normal 'Century Gothic', 'Lucida Grande', Verdana, sans-serif;
+    font-weight: lighter;
+    color: rgb(42, 42, 51);
+    text-align: center;
+    cursor: pointer;
+    line-height: 10px;
+}
+
+.navtext:hover {
+    color: rgb(255, 102, 0);
+}
+
+.navtextSelected {
+    color: white;
+}
+
+#drawer-left {
+    background-image: url(Images/drawer-left.png);
+    background-repeat: repeat-y;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    height: 200px;
+    padding-left: 10px;
+    background-position: 0% 0%;
+}
+
+#drawer-right {
+    background-image: url(Images/drawer-right.png);
+    background-repeat: repeat-y;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    height: 100%;
+    padding-right: 10px;
+    background-position: 100% 0%;
+}
+
+/* Bottom of the widget */
+#bottom-left {
+    background-image: url(Images/bottom-left.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-left: 22px;
+    height: 33px;
+    background-position: 0% 100%;
+}
+
+#bottom-right {
+    background-image: url(Images/bottom-right.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    padding-right: 23px;
+    height: 33px;
+    background-position: 100% 100%;
+}
+
+#bottom-filler {
+    background-image: url(Images/bottom-filler.png);
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    height: 33px;
+    margin-top: 0px;
+    margin-right: 12px;
+    margin-bottom: 0px;
+    margin-left: 13px;
+    background-position: 0% 100%;
+}
+
+/* UI Controls */
+#controls {
+    position: absolute;
+    z-index: 1000;
+}
+
+#resizer {
+    width: 12px;
+    height: 12px;
+    float: right;
+    margin-top: 3px;
+    background-image: url(file:///System/Library/WidgetResources/resize.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    -apple-dashboard-region: dashboard-region(control rectangle);
+    background-position: 0% 0%;
+}
+
+.flip {
+    width: 13px;
+    height: 13px;
+    margin-top: 3px;
+    position: absolute;
+}
+
+#flip {
+    opacity: 0;
+    background-image: url(file:///System/Library/WidgetResources/ibutton/white_i.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    z-index: 8000;
+    background-position: 0% 0%;
+}
+
+#fliprollie {
+    display: none;
+    opacity: 0.25;
+    background-image: url(file:///System/Library/WidgetResources/ibutton/white_rollie.png);
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: transparent;
+    z-index: 7999;
+    background-position: 0% 0%;
+}
+
+#statusbar {
+    float: right;
+    margin-right: 40px;
+    font: normal normal normal 12px/normal 'Lucida Grande';
+    font-weight: normal;
+    color: white;
+}
+/***************/
+/* Widget Back */
+/***************/
+#back {
+    display: none;
+    width: 360px;
+    height: 250px;
+}
+
+#backcontents {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 360px;
+    height: 250px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#backtitle {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+}
+
+#backversion {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#backcopyright {
+    font-size: 12px;
+}
+
+#doneButton {
+    position: fixed;
+    top: 68px;
+    left: 275px;
+}
+
+#remoteServerInput {
+    height: 50px;
+}
+
+.leftoptions {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 40px;
+}
+
+.rightoptions {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 160px;
+}
+
+#drawer {
+    display: block;
+    position: absolute;
+    top: 42px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    text-align: center;
+}
+
+div#container {
+    background-image: url(Images/pdot.png);
+    background-repeat: repeat;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: rgb(153, 153, 204);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-position: 0% 0%;
+}
+
+div#content {
+    overflow: hidden;
+    height: 198px;
+    margin-top: 0px;
+    margin-right: 3px;
+    margin-bottom: 0px;
+    margin-left: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(102, 102, 153);
+    background-color: rgb(255, 255, 255);
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    height: 24px;
+}
+
+.light {
+    background-image: url(Images/light.png);
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: initial;
+    background-position: 0% 0%;
+}
+
+.dark {
+    background-image: url(Images/dark.png);
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    -khtml-background-clip: initial;
+    -khtml-background-origin: initial;
+    background-color: initial;
+    background-position: 0% 0%;
+}
+
+.title {
+    position: absolute;
+    font-family: verdana, sans-serif;
+    color: rgb(66, 81, 100);
+    font-size: 9px;
+    top: 4px;
+    left: 11px;
+    width: 80%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.state {
+    position: absolute;
+    font: normal normal normal 9px/normal 'Lucida Grande';
+    font-weight: normal;
+    color: rgb(66, 81, 100);
+    text-align: right;
+    //	display: inline-block;
+    top: 4px;
+    right: 5px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.variable {
+    position: absolute;
+    font: normal normal normal 9px/normal 'Lucida Grande';
+    font-weight: normal;
+    color: rgb(66, 81, 100);
+    text-align: right;
+    display: inline-block;
+    top: 4px;
+    right: 40px;
+    width: 35px;
+}
+
+span.state {
+    display: none;
+/*    display: inline;*/
+    font: normal normal normal 9px/normal 'Lucida Grande';
+    font-weight: normal;
+    color: rgb(66, 81, 100);
+    text-align: right;
+/* 	display: inline-block;*/
+}
+
+/*************************
+ * Device/variable icons *
+ *************************/
+.devicetrue {
+    background-image: url(Images/device_on.png);
+    background-repeat: no-repeat;
+    height: 17px;
+}
+
+.devicefalse {
+    background-image: url(Images/device_off.png);
+    background-repeat: no-repeat;
+    height: 17px;
+}
+
+.bulbtrue {
+    background-image: url(Images/bulb_on.png);
+    background-repeat: no-repeat;
+    height: 17px;
+}
+
+.bulbfalse {
+    background-image: url(Images/bulb_off.png);
+    background-repeat: no-repeat;
+    height: 17px;
+}
+
+.title:hover {
+    color: rgb(102, 0, 102);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.slider {
+    position: absolute;
+    font: normal normal normal 9px/normal 'Lucida Grande';
+    font-weight: normal;
+    color: rgb(66, 81, 100);
+    text-align: left;
+    display: inline-block;
+    top: 4px;
+    right: 70px;
+    //	width:40px;
+}
+
+.slider_input {
+    width: 80px;
+}
+
+.slider_value {
+    position: absolute;
+    text-align: right;
+    right: -30px;
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+#line {
+    position: absolute;
+    width: 354px;
+    height: 1px;
+    left: 9px;
+    top: 204px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(102, 0, 102);
+    display: none;
+}
+
+/**************************
+ * Dimmable device slider *
+ **************************/
+#done {
+    position: absolute;
+    top: 79px;
+    left: 278px;
+}
