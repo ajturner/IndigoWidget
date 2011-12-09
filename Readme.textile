@@ -1,0 +1,79 @@
+h1. IndigoWidget
+
+version 1.3.3 (compatible with Indigo 4.0 Pro+)
+released December 8, 2011
+
+Developed by Andrew Turner 
+software@highearthorbit.com
+http://highearthorbit.com/software
+
+Indigo is made by Perceptive Automation
+http://perceptiveautomation.com
+
+h1. Version Compatibility
+
+IndigoWidget version 1.3.3 is compatible with Indigo 4.0 Pro and higher. The widget communicates with Indigo via AppleScript, which is an Indigo 4.x Pro only feature, and thus is not compatible with Indigo 4.x Lite.
+
+h1. Overview
+
+IndigoWidget is a Mac OS X Dashboard widget that allows users to quickly check the status of devices, turn devices on, off, or variable dim on lamps, execute action groups, and view variables of Indigo Home Automation. Furthermore, IndigoWidget allows you to control your devices from a client computer, laptop, or even over the internet from another mac. 
+
+h1. Installation
+
+To install IndigoWidget, double click the Indigo.wdgt file. This will install and place the widget on your dashboard. The bottom of the widget should say "Updating..." for a few seconds, and then your devices will show up.
+
+In order to add or remove devices, action groups, or variables from the Widget, you will need to change the value "Display in Remote UI" in the Indigo application.
+
+h1. Remote access
+
+In order to enable remote access to your computer running Indigo, you will need to turn on "Remote Apple Events". Go to your "System Preferences", and choose the "Sharing" preference pane. In the "Services" tab, make sure "Remote Apple Events" is checked and on. 
+
+The next thing you need to do is configure the widget to communicate to your server computer. In the Dashboard, hover the mouse over top the widget, and press the small "i" that appears in the lower left corner. Enter the hostname or IP address of the server computer running Indigo. Also enter the username and password of the user for the Indigo server computer. This is *not* the password for Indigo, but the login for the account on the server. Check the box that says "Remote Server". Press the "Done" button and your widget should update after a short pause. 
+
+You will also need open "System Preferences", open "Sharing" and turn on "Remote Apple Events". The box will be checked.
+
+If the client computer is coming in over the internet (from your office, on the road, etc) you will need to setup port forwarding on your home network's router/firewall. Remote applescript uses port 3031. Turn on port forwarding on your router to forward incoming request to port 3031 to the computer running Indigo. 
+
+h1. Troubleshooting
+
+Problem: No devices show up, or there are missing devices
+Solution: Ensure that "Display in UI" is marked for the desired devices in the Indigo main application. 
+
+Problem: The Widget works locally on the Mac running Indigo Server but not remotely.
+Solution: Make sure you follow all of the instructions above for Remote Access. Additionally, you can troubleshoot remote access by opening the Terminal application (/Applications/Utilities/Terminal.app) and entering the following on a single line:
+
+/usr/bin/osascript -e "tell application \"Finder\" of machine \"eppc://username:password@computernameorip/\"" -e"end tell"
+
+Replace username, password and computernameorip with your actual remote Mac account information. If this command just returns back to you, then remote applescript is working - or you may get an error message that is more helpful.
+
+Also, there are problems handling devices, action groups, and variables that have quotation marks ('  or " ) and commas (,) in the title. At this time, it is recommended that you remove these characters from your device and group names. 
+
+h1. License
+
+IndigoWidget is released under the BSD license which allows for modifications and derivative works under the license below.
+
+ Copyright (c) 2006-2011, Andrew Turner, HighEarthOrbit software (http://highearthorbit.com)
+  and Perceptive Automation, LLC. (http://www.perceptiveautomation.com/). 
+ All rights reserved.
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+      * Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+      * Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+      * Neither the name of Andrew Turner nor the
+       names of its contributors may be used to endorse or promote products
+       derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY HIGHEARTHORBIT AND CONTRIBUTORS "AS IS" AND ANY
+ EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY
+ DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

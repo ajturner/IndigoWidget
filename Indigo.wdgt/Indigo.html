@@ -2,9 +2,10 @@
 // File: IndigoWidget.html
 // Purpose: HTML document for Indigo home automation widget
 // Written by Andrew Turner (ajturner@highearthorbit.com)
-// Date: October 30, 2005
-// Version: 1.3
+// Date: December 8, 2011
+// Version: 1.3.3
 // History: 
+//  1.3.3 - Updated version and description of help (Dec 8, 2011)
 //  1.3 - Added preference inputs for setting remote applescripting (Oct 30, 2005)
 //  1.2 - changed calling URLs to use wrapURL function in the js file (Sept 23, 2005)
 //  1.1 - Added resizing (Sept 19, 2005)
@@ -73,7 +74,7 @@
 		<div id="top" class="open">
        
             <div id="titlebar">Indigo<br>
-                <span style="font-size:9px;font-family:'Lucida grande',verdana,sans-serif">home automation</span>
+                <span style="font-size:8px;font-family:'Lucida grande',verdana,sans-serif">home automation</span>
             </div>
        		<div id="controls">
 
@@ -116,18 +117,21 @@
     <br>
         <div id="remoteServerInput">
             <div class="leftoptions">
+                <em>Indigo server</em><br>
                 <input style="width:90;" type="text" id="serverIP" size="11" results="10" autosave="serverIP" placeholder="Server IP" value="">
             <br>
                 <input id="remoteServer" type="checkbox">Remote Server
             </div>
             <div class="rightoptions">
+                <em>Remote login</em><br>
+
                 <input style="width:90;" type="text" id="serverUsername" size="11" results="10" autosave="serverUsername" placeholder="Username" value="">
             <br>
                 <input style="width:90;" type="password" id="serverPassword" size="11" results="10" autosave="serverPassword" placeholder="Password" value="">
             <br>
             </div>
         </div>
-	    <div><em>Please use your short username (no spaces).</em><br>
+	    <div><em>Use the shortname login (no spaces).</em><br>
 	    </div>
 	    <div onclick="wrapURL(&quot;http://www.highearthorbit.com&quot;)">Made by Andrew Turner<br>http://highearthorbit.com<br>
 	    <br>
